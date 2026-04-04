@@ -3,14 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Desenvolvimento da Fala e da Linguagem da Criança</title>
+    <title>Kit Desenvolvimento da Fala e Linguagem Infantil | IBPROF</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%232a5fc4'/%3E%3Ctext x='50' y='67' font-family='Arial Black%2C Arial' font-weight='900' font-size='38' fill='%23ffffff' text-anchor='middle' letter-spacing='-1'%3EKIT%3C/text%3E%3C/svg%3E">
-    <meta name="description" content="Kit completo para estimular a fala e a linguagem infantil em sala de aula. Método validado por fonoaudióloga, musicista e educadoras com mais de 30 anos de experiência.">
-    <meta property="og:title" content="O Desenvolvimento da Fala e da Linguagem da Criança">
-    <meta property="og:description" content="O kit mais completo para estimular a fala e a linguagem infantil em sala de aula. Acesso vitalício por 8x de R$9,51.">
+    <meta name="description" content="Kit pedagógico completo para professores de educação infantil estimularem a fala e a linguagem de 0 a 5 anos. Método validado por fonoaudióloga e educadoras com mais de 30 anos de experiência. Acesso vitalício por 8x de R$9,51.">
+    <meta name="keywords" content="desenvolvimento da fala, linguagem infantil, kit pedagógico, educação infantil, estimulação da linguagem, fonoaudiologia educacional, atividades para fala de crianças, material didático educação infantil, IBPROF">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="IBPROF — Instituto Brasileiro de Professores">
+    <meta property="og:title" content="Kit Desenvolvimento da Fala e Linguagem Infantil | IBPROF">
+    <meta property="og:description" content="Kit pedagógico completo para estimular a fala e a linguagem de 0 a 5 anos. Método, jogos musicais, cartões, áudios e partituras. Acesso vitalício por 8x de R$9,51.">
     <meta property="og:image" content="assets/mockup.png">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="IBPROF">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kit Desenvolvimento da Fala e Linguagem Infantil | IBPROF">
+    <meta name="twitter:description" content="Kit pedagógico completo para estimular a fala e a linguagem de 0 a 5 anos. Acesso vitalício por 8x de R$9,51.">
+    <meta name="twitter:image" content="assets/mockup.png">
+    <!-- Schema.org Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "O Desenvolvimento da Fala e da Linguagem da Criança",
+      "description": "Kit pedagógico completo para professores de educação infantil estimularem a fala e a linguagem de 0 a 5 anos. Método, jogos musicais, cartões de alto contraste, áudios e partituras.",
+      "brand": { "@type": "Brand", "name": "IBPROF" },
+      "offers": {
+        "@type": "Offer",
+        "price": "67.00",
+        "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock",
+        "url": "https://pay.voompcreators.com.br/13329/offer/ax4fkS"
+      }
+    }
+    </script>
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1456216939376794');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+        content_name: 'Kit O Desenvolvimento da Fala e da Linguagem da Criança',
+        content_ids: ['ax4fkS'],
+        content_type: 'product',
+        value: 67.00,
+        currency: 'BRL'
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1456216939376794&ev=PageView&noscript=1"></noscript>
     <style>html { scroll-behavior: smooth; }</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2282,6 +2326,41 @@ makeCarousel('heroStage', HERO_SLIDES);
         setTimeout(showToast, 30000 + Math.random() * 30000);
     }
     setTimeout(showToast, 8000 + Math.random() * 5000);
+})();
+
+/* ── UTM CAPTURE → CHECKOUT ── */
+(function () {
+    const CHECKOUT_BASE = 'https://pay.voompcreators.com.br/13329/offer/ax4fkS';
+    const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id'];
+
+    /* lê UTMs da URL e persiste na sessão */
+    const params = new URLSearchParams(window.location.search);
+    const utms = {};
+    UTM_KEYS.forEach(k => {
+        const fromUrl = params.get(k);
+        if (fromUrl) {
+            sessionStorage.setItem(k, fromUrl);
+            utms[k] = fromUrl;
+        } else {
+            const fromSession = sessionStorage.getItem(k);
+            if (fromSession) utms[k] = fromSession;
+        }
+    });
+
+    /* monta query string */
+    const utmStr = UTM_KEYS
+        .filter(k => utms[k])
+        .map(k => k + '=' + encodeURIComponent(utms[k]))
+        .join('&');
+
+    if (!utmStr) return;
+
+    const checkoutUrl = CHECKOUT_BASE + '?' + utmStr;
+
+    /* atualiza todos os links de checkout */
+    document.querySelectorAll('a[href="' + CHECKOUT_BASE + '"]').forEach(el => {
+        el.href = checkoutUrl;
+    });
 })();
 
 </script>
