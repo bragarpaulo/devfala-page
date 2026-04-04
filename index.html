@@ -2736,14 +2736,18 @@ makeCarousel('heroStage', HERO_SLIDES);
     btnDismiss.addEventListener('click', hide);
     modal.addEventListener('click', e => { if (e.target === modal) hide(); });
 
-    /* UTM forward no link do modal */
+    /* UTM forward no link do modal (com fallback orgânico) */
     const CHECKOUT_BASE = 'https://pay.voompcreators.com.br/13329/offer/ax4fkS';
     const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id'];
-    const utmStr = UTM_KEYS
-        .filter(k => sessionStorage.getItem(k))
-        .map(k => k + '=' + encodeURIComponent(sessionStorage.getItem(k)))
-        .join('&');
-    if (utmStr) exitCta.href = CHECKOUT_BASE + '?' + utmStr;
+    const sessionUtms = {};
+    UTM_KEYS.forEach(k => { const v = sessionStorage.getItem(k); if (v) sessionUtms[k] = v; });
+    if (!UTM_KEYS.some(k => sessionUtms[k])) {
+        sessionUtms['utm_source'] = 'organico';
+        sessionUtms['utm_medium'] = 'organico';
+        sessionUtms['utm_campaign'] = 'organico';
+    }
+    const exitUtmStr = UTM_KEYS.filter(k => sessionUtms[k]).map(k => k + '=' + encodeURIComponent(sessionUtms[k])).join('&');
+    exitCta.href = CHECKOUT_BASE + '?' + exitUtmStr;
 })();
 
 /* ── ANIMATED FAVICON (quando aba perde foco) ── */
@@ -2786,13 +2790,19 @@ makeCarousel('heroStage', HERO_SLIDES);
         }
     });
 
+    /* fallback orgânico quando nenhum UTM veio na URL */
+    const hasAny = UTM_KEYS.some(k => utms[k]);
+    if (!hasAny) {
+        utms['utm_source']   = 'organico';
+        utms['utm_medium']   = 'organico';
+        utms['utm_campaign'] = 'organico';
+    }
+
     /* monta query string */
     const utmStr = UTM_KEYS
         .filter(k => utms[k])
         .map(k => k + '=' + encodeURIComponent(utms[k]))
         .join('&');
-
-    if (!utmStr) return;
 
     const checkoutUrl = CHECKOUT_BASE + '?' + utmStr;
 
