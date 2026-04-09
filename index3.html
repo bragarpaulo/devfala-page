@@ -2258,16 +2258,25 @@ function makeCarousel(stageId, slides) {
     }
 
     function onStart(e) {
-        const cx = e.touches ? e.touches[0].clientX : e.clientX;
-        const cy = e.touches ? e.touches[0].clientY : e.clientY;
+        const isTouch = !!e.touches;
+        const cx = isTouch ? e.touches[0].clientX : e.clientX;
+        const cy = isTouch ? e.touches[0].clientY : e.clientY;
         startX = lastX = cx;
         startY = cy;
-        directionLocked = false;
-        isDragging = false;
         velX = 0;
         const m = new DOMMatrix(window.getComputedStyle(track).transform);
         startOffset = m.m41;
         if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        if (isTouch) {
+            directionLocked = false;
+            isDragging = false;
+        } else {
+            directionLocked = true;
+            isDragging = true;
+            track.classList.add('dragging');
+            track.style.animation = 'none';
+            track.style.transform = `translateX(${startOffset}px)`;
+        }
     }
 
     function onMove(e) {
