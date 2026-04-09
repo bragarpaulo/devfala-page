@@ -2238,8 +2238,8 @@ function makeCarousel(stageId, slides) {
     stage.appendChild(track);
 
     /* ── DRAG / SWIPE ── */
-    let isDragging = false;
-    let startX = 0, lastX = 0, startOffset = 0, velX = 0, rafId = null;
+    let isDragging = false, directionLocked = false;
+    let startX = 0, startY = 0, lastX = 0, startOffset = 0, velX = 0, rafId = null;
 
     function normalize(offset) {
         const hw = track.scrollWidth / 2;
@@ -2258,22 +2258,39 @@ function makeCarousel(stageId, slides) {
     }
 
     function onStart(e) {
-        isDragging = true;
-        track.classList.add('dragging');
         const cx = e.touches ? e.touches[0].clientX : e.clientX;
+        const cy = e.touches ? e.touches[0].clientY : e.clientY;
         startX = lastX = cx;
+        startY = cy;
+        directionLocked = false;
+        isDragging = false;
         velX = 0;
         const m = new DOMMatrix(window.getComputedStyle(track).transform);
         startOffset = m.m41;
-        track.style.animation = 'none';
-        track.style.transform = `translateX(${startOffset}px)`;
         if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     }
 
     function onMove(e) {
+        const cx = e.touches ? e.touches[0].clientX : e.clientX;
+        const cy = e.touches ? e.touches[0].clientY : e.clientY;
+
+        if (!directionLocked) {
+            const dx = Math.abs(cx - startX);
+            const dy = Math.abs(cy - startY);
+            if (dx < 5 && dy < 5) return;
+            directionLocked = true;
+            if (dy > dx) {
+                isDragging = false;
+                return;
+            }
+            isDragging = true;
+            track.classList.add('dragging');
+            track.style.animation = 'none';
+            track.style.transform = `translateX(${startOffset}px)`;
+        }
+
         if (!isDragging) return;
         if (e.cancelable) e.preventDefault();
-        const cx = e.touches ? e.touches[0].clientX : e.clientX;
         velX = cx - lastX;
         lastX = cx;
         track.style.transform = `translateX(${startOffset + (cx - startX)}px)`;
