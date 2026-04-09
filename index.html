@@ -2238,7 +2238,7 @@ function makeCarousel(stageId, slides) {
     stage.appendChild(track);
 
     /* ── DRAG / SWIPE ── */
-    let isDragging = false, directionLocked = false;
+    let isDragging = false, directionLocked = false, mouseIsDown = false;
     let startX = 0, startY = 0, lastX = 0, startOffset = 0, velX = 0, rafId = null;
 
     function normalize(offset) {
@@ -2272,7 +2272,8 @@ function makeCarousel(stageId, slides) {
             directionLocked = false;
             isDragging = false;
         } else {
-            // desktop: ativa drag imediatamente
+            // desktop: ativa drag imediatamente (só ativa se botão pressionado)
+            mouseIsDown = true;
             directionLocked = true;
             isDragging = true;
             track.classList.add('dragging');
@@ -2282,6 +2283,7 @@ function makeCarousel(stageId, slides) {
     }
 
     function onMove(e) {
+        if (!e.touches && !mouseIsDown) return;
         const cx = e.touches ? e.touches[0].clientX : e.clientX;
         const cy = e.touches ? e.touches[0].clientY : e.clientY;
 
@@ -2308,6 +2310,7 @@ function makeCarousel(stageId, slides) {
     }
 
     function onEnd() {
+        mouseIsDown = false;
         if (!isDragging) return;
         isDragging = false;
         track.classList.remove('dragging');
