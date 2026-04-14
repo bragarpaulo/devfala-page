@@ -1271,6 +1271,99 @@
         .toast-name { font-size: 0.82rem; font-weight: 700; color: #34d399; }
         .toast-label { font-size: 0.72rem; color: rgba(17,24,39,0.5); margin-top: 3px; }
 
+        /* ─── CIÊNCIA / DADOS ─── */
+        .science-section {
+            background: #0d1f3c;
+            padding: 80px 24px 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .science-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(23,163,163,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .science-tag {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #17a3a3;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .science-title {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: #fff;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.2;
+            margin-bottom: 56px;
+            letter-spacing: -0.025em;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .science-title em { font-style: normal; color: #17a3a3; }
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 960px;
+        }
+        .science-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 36px 28px 32px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .science-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(23,163,163,0.35);
+        }
+        .science-card-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .science-stat {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: #17a3a3;
+            line-height: 1;
+            margin-bottom: 14px;
+            letter-spacing: -0.03em;
+        }
+        .science-desc {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.82);
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+        .science-source {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 14px;
+        }
+        @media (max-width: 760px) {
+            .science-grid { grid-template-columns: 1fr; max-width: 400px; }
+        }
+
         /* ─── ANTES / DEPOIS ─── */
         /* ─── PASSO A PASSO ─── */
         .steps-section {
@@ -1806,7 +1899,7 @@
         <button class="exit-close" id="exitClose" aria-label="Fechar">×</button>
         <div class="exit-emoji">⚡</div>
         <h2 class="exit-title">Espera — antes de ir,<br>veja esta <em>oferta especial</em></h2>
-        <p class="exit-sub">O kit completo para estimular a fala e a linguagem infantil. Acesso vitalício, método validado e tudo que você precisa para entrar em sala com confiança.</p>
+        <p class="exit-sub">O kit completo para estimular a fala e a linguagem infantil. Para professores, fonoaudiólogos, terapeutas e psicólogos. Acesso vitalício e método validado.</p>
         <div class="exit-prices">
             <span class="exit-price-from">R$&nbsp;398,00</span>
             <span class="exit-price-val"><small>8x de R$</small>9,51</span>
@@ -1841,7 +1934,7 @@
         </div>
 
         <h1 class="main-headline" id="heroHeadline">
-            O kit mais completo para estimular a <em>fala e a linguagem infantil</em> em sala de aula.
+            O kit mais completo para estimular a <em>fala e a linguagem infantil</em> na sua prática profissional.
         </h1>
 
         <div class="hero-badges" id="heroBadges">
@@ -1852,7 +1945,7 @@
         <div class="fan-stage" id="heroStage"></div>
 
         <div class="stats-row" id="heroStats">
-            <div class="stat"><div class="ck">📚</div><span>+50 recursos prontos</span></div>
+            <div class="stat"><div class="ck">📚</div><span>Materiais prontos para baixar</span></div>
             <div class="stat"><div class="ck">🎮</div><span>Jogos</span></div>
             <div class="stat"><div class="ck">✏️</div><span>Atividades</span></div>
             <div class="stat"><div class="ck">🎵</div><span>Canções</span></div>
@@ -1929,37 +2022,34 @@
     </div>
 </section>
 
-<!-- ═══ DOBRA — PASSO A PASSO ═══ -->
-<section class="steps-section">
-    <h2 class="steps-headline" id="stepsHeadline">Você está a 3 minutos de<br><em>transformar sua próxima aula</em></h2>
-    <p class="steps-eyebrow">É simples assim. Sem complicação.</p>
+<!-- ═══ DOBRA — DADOS / CIÊNCIA ═══ -->
+<section class="science-section">
+    <p class="science-tag">o que a ciência comprova</p>
+    <h2 class="science-title" id="scienceTitle">A estimulação precoce da fala<br>não é opcional — é <em>urgente</em></h2>
 
-    <div class="steps-timeline" id="stepsGrid">
-        <div class="steps-line-track"><div class="steps-line-fill" id="stepsLineFill"></div></div>
+    <div class="science-grid" id="scienceGrid">
 
-        <div class="step-node" data-step="1">
-            <div class="step-check" id="stepCheck1">📥</div>
-            <h3 class="step-name">Receba o acesso<br>na hora</h3>
-            <p class="step-desc">Compre agora e o link chega no seu e-mail imediatamente. Abre no celular, tablet ou computador.</p>
+        <div class="science-card">
+            <div class="science-card-icon">🧠</div>
+            <div class="science-stat">70%</div>
+            <p class="science-desc">do desenvolvimento cerebral ocorre até os 6 anos de vida. É nessa janela que a estimulação da linguagem tem o maior impacto.</p>
+            <div class="science-source">Fonte: UNICEF — Early Childhood Development, 2023</div>
         </div>
 
-        <div class="step-node" data-step="2">
-            <div class="step-check" id="stepCheck2">🎯</div>
-            <h3 class="step-name">Escolha a sua<br>atividade</h3>
-            <p class="step-desc">Mais de 50 recursos organizados por faixa etária. Selecione a ideal para a sua turma do dia.</p>
+        <div class="science-card">
+            <div class="science-card-icon">📊</div>
+            <div class="science-stat">1 em 10</div>
+            <p class="science-desc">crianças em idade pré-escolar apresenta algum atraso no desenvolvimento da linguagem — e a maioria não recebe estimulação adequada em sala.</p>
+            <div class="science-source">Fonte: OMS — World Report on Disability, 2022</div>
         </div>
 
-        <div class="step-node" data-step="3">
-            <div class="step-check" id="stepCheck3">✨</div>
-            <div class="step-time">na sua próxima aula</div>
-            <h3 class="step-name">Aplique e veja<br>a diferença</h3>
-            <p class="step-desc">Material validado por fonoaudióloga. Aplique amanhã e observe as crianças respondendo.</p>
+        <div class="science-card">
+            <div class="science-card-icon">📈</div>
+            <div class="science-stat">3×</div>
+            <p class="science-desc">mais eficácia tem a intervenção realizada antes dos 5 anos em comparação com intervenções iniciadas após os 7 anos de idade.</p>
+            <div class="science-source">Fonte: ASHA — Early Intervention in Speech-Language Pathology, 2021</div>
         </div>
-    </div>
 
-    <div class="steps-cta-wrap" id="stepsCta">
-        <a href="#oferta" class="btn" style="background:linear-gradient(135deg,#e8185a,#c4104a);">Começar agora →</a>
-        <p class="steps-cta-note">Acesso imediato &nbsp;·&nbsp; Material 100% digital</p>
     </div>
 </section>
 
@@ -1969,7 +2059,7 @@
 <section class="proof-section">
 
     <h2 class="proof-title" id="proofTitle">Veja quem já está usando o kit</h2>
-    <p class="proof-sub" id="proofSub">Professores de todo o Brasil já estão aplicando o material em sala</p>
+    <p class="proof-sub" id="proofSub">Professores, fonoaudiólogos, terapeutas e psicólogos de todo o Brasil já estão aplicando o material</p>
 
     <div class="proof-grid" id="proofGrid">
         <div class="proof-img-wrap">
@@ -2000,6 +2090,40 @@
 
     <div class="proof-cta" id="proofCta">
         <a href="#oferta" class="btn">QUERO MEU ACESSO VITALÍCIO</a>
+    </div>
+</section>
+
+<!-- ═══ DOBRA — PASSO A PASSO ═══ -->
+<section class="steps-section">
+    <h2 class="steps-headline" id="stepsHeadline">Você está a 3 minutos de<br><em>transformar sua próxima aula</em></h2>
+    <p class="steps-eyebrow">É simples assim. Sem complicação.</p>
+
+    <div class="steps-timeline" id="stepsGrid">
+        <div class="steps-line-track"><div class="steps-line-fill" id="stepsLineFill"></div></div>
+
+        <div class="step-node" data-step="1">
+            <div class="step-check" id="stepCheck1">📥</div>
+            <h3 class="step-name">Receba o acesso<br>na hora</h3>
+            <p class="step-desc">Compre agora e o link chega no seu e-mail imediatamente. Abre no celular, tablet ou computador.</p>
+        </div>
+
+        <div class="step-node" data-step="2">
+            <div class="step-check" id="stepCheck2">🎯</div>
+            <h3 class="step-name">Escolha a sua<br>atividade</h3>
+            <p class="step-desc">Mais de 50 recursos organizados por faixa etária. Selecione a ideal para a sua turma, paciente ou grupo do dia.</p>
+        </div>
+
+        <div class="step-node" data-step="3">
+            <div class="step-check" id="stepCheck3">✨</div>
+            <div class="step-time">na sua próxima aula</div>
+            <h3 class="step-name">Aplique e veja<br>a diferença</h3>
+            <p class="step-desc">Material validado por fonoaudióloga. Aplique amanhã e observe as crianças respondendo.</p>
+        </div>
+    </div>
+
+    <div class="steps-cta-wrap" id="stepsCta">
+        <a href="#oferta" class="btn" style="background:linear-gradient(135deg,#e8185a,#c4104a);">Começar agora →</a>
+        <p class="steps-cta-note">Acesso imediato &nbsp;·&nbsp; Material 100% digital</p>
     </div>
 </section>
 
@@ -2055,7 +2179,7 @@
             <img class="av" src="assets/av-5.jpg" alt="" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#3b82f6,#1d4ed8)'">
         </div>
         <div class="offer-social-text">
-            <div class="offer-social-count">Centenas de professoras</div>
+            <div class="offer-social-count">Centenas de profissionais</div>
             <div class="offer-social-label">já acessaram este material</div>
         </div>
     </div>
@@ -2195,7 +2319,7 @@
             <img class="av" src="assets/av-5.jpg" alt="" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#3b82f6,#1d4ed8)'">
         </div>
         <div class="offer-social-text">
-            <div class="offer-social-count">Centenas de professoras</div>
+            <div class="offer-social-count">Centenas de profissionais</div>
             <div class="offer-social-label">já acessaram este material</div>
         </div>
     </div>
@@ -2288,7 +2412,7 @@
                 Preciso ter conhecimento musical para usar o material?
                 <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer"><p>Não. O material foi pensado para professores da educação infantil, com propostas simples e acessíveis para qualquer professor.</p></div>
+            <div class="faq-answer"><p>Não. O material foi pensado para qualquer profissional que trabalha com crianças de 0 a 5 anos — professores de educação infantil, fonoaudiólogos, terapeutas ocupacionais, psicólogos e educadores musicais. As propostas são simples e acessíveis para todas as áreas.</p></div>
         </div>
 
         <div class="faq-item">
@@ -2400,7 +2524,7 @@ const RESOURCES = [
     { title:'Partituras\nprontas para usar em sala',                     bg:'#0f1520,#1a2535' },
     { title:'Áudios\nacesso via QR Code',                               bg:'#0f2018,#1a3528' },
     { title:'Material 100% digital\npronto para impressão',              bg:'#201508,#352510' },
-    { title:'Para professores de educação infantil\ne educadores musicais', bg:'#0f0f22,#1a1a38' },
+    { title:'Para professores, fonoaudiólogos,\nterapeutas e psicólogos', bg:'#0f0f22,#1a1a38' },
     { title:'Bônus 1\nAula de Música para Professores',                 bg:'#201205,#352212' },
     { title:'Bônus 2\nAula Prática de Aplicação do Material',           bg:'#0f2018,#1a3530' },
 ];
@@ -2804,6 +2928,27 @@ makeCarousel('heroStage', HERO_SLIDES);
     ['transformTitle','transformGrid'].forEach(id => {
         const el = document.getElementById(id); if (el) io.observe(el);
     });
+})();
+
+/* ── CIÊNCIA / DADOS ANIMATION ── */
+(function () {
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            anime({ targets: '#scienceTitle', opacity:[0,1], translateY:[20,0], duration:700, easing:'easeOutExpo' });
+            anime({
+                targets: '#scienceGrid .science-card',
+                opacity: [0, 1],
+                translateY: [24, 0],
+                duration: 650,
+                delay: anime.stagger(150, { start: 200 }),
+                easing: 'easeOutExpo'
+            });
+            io.unobserve(entry.target);
+        });
+    }, { threshold: 0.15 });
+    const el = document.getElementById('scienceGrid');
+    if (el) io.observe(el);
 })();
 
 /* ── PASSO A PASSO ANIMATION ── */
