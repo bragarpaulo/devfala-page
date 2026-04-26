@@ -3153,7 +3153,7 @@ makeCarousel('heroStage', HERO_SLIDES);
 
     /* UTM forward no link do modal (com fallback orgânico) */
     const CHECKOUT_BASE = 'https://pay.voompcreators.com.br/13329/offer/ax4fkS';
-    const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id'];
+    const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid'];
     const sessionUtms = {};
     UTM_KEYS.forEach(k => { const v = sessionStorage.getItem(k); if (v) sessionUtms[k] = v; });
     if (!UTM_KEYS.some(k => sessionUtms[k])) {
@@ -3189,7 +3189,7 @@ makeCarousel('heroStage', HERO_SLIDES);
 /* ── UTM CAPTURE → CHECKOUT ── */
 (function () {
     const CHECKOUT_BASE = 'https://pay.voompcreators.com.br/13329/offer/ax4fkS';
-    const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id'];
+    const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid'];
 
     /* lê UTMs da URL e persiste na sessão */
     const params = new URLSearchParams(window.location.search);
