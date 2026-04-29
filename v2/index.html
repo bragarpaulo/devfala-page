@@ -34,7 +34,7 @@
         "price": "67.00",
         "priceCurrency": "BRL",
         "availability": "https://schema.org/InStock",
-        "url": "https://pay.hotmart.com/P105599030J?off=yy922qb7"
+        "url": "https://pay.voompcreators.com.br/13329/offer/ax4fkS"
       }
     }
     </script>
@@ -322,7 +322,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
             <span class="exit-price-from">R$&nbsp;398,00</span>
             <span class="exit-price-val"><small>8x de R$</small>9,51</span>
         </div>
-        <a href="https://pay.hotmart.com/P105599030J?off=yy922qb7" class="exit-cta" id="exitCta" target="_blank" rel="noopener">
+        <a href="https://pay.voompcreators.com.br/13329/offer/ax4fkS" class="exit-cta" id="exitCta" target="_blank" rel="noopener">
             QUERO MEU ACESSO VITALÍCIO →
         </a>
         <button class="exit-dismiss" id="exitDismiss">Não, prefiro continuar sem o guia</button>
@@ -650,7 +650,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
         <div class="offer-price-main"><span class="price-small">8x de R$</span>9,51</div>
         <div class="offer-price-alt">ou R$&nbsp;67,00 à vista</div>
 
-        <a href="https://pay.hotmart.com/P105599030J?off=yy922qb7"
+        <a href="https://pay.voompcreators.com.br/13329/offer/ax4fkS"
            class="offer-cta" target="_blank" rel="noopener">
             QUERO MEU ACESSO VITALÍCIO →
         </a>
@@ -763,7 +763,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
         <div class="offer-price-main"><span class="price-small">8x de R$</span>9,51</div>
         <div class="offer-price-alt">ou R$&nbsp;67,00 à vista</div>
 
-        <a href="https://pay.hotmart.com/P105599030J?off=yy922qb7"
+        <a href="https://pay.voompcreators.com.br/13329/offer/ax4fkS"
            class="offer-cta" target="_blank" rel="noopener">
             QUERO MEU ACESSO VITALÍCIO →
         </a>
@@ -1053,7 +1053,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 
 /* ── UTM CAPTURE → CHECKOUT ── */
 (function () {
-    const CHECKOUT_BASE = 'https://pay.hotmart.com/P105599030J?off=yy922qb7';
+    const CHECKOUT_BASE = 'https://pay.voompcreators.com.br/13329/offer/ax4fkS';
     const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid'];
 
     const params = new URLSearchParams(window.location.search);
@@ -1081,7 +1081,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
     function wireCheckoutLinks() {
         const allParams = Object.assign({}, utms, stafyExtras);
         const qs = Object.keys(allParams).filter(k => allParams[k]).map(k => k + '=' + encodeURIComponent(allParams[k])).join('&');
-        const checkoutUrl = CHECKOUT_BASE + '&' + qs;
+        const checkoutUrl = CHECKOUT_BASE + '?' + qs;
         document.querySelectorAll('a[href^="' + CHECKOUT_BASE + '"]').forEach(el => { el.href = checkoutUrl; });
     }
 
